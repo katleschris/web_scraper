@@ -40,7 +40,7 @@ You can install the necessary packages using the `requirements.txt` file provide
 
 To run the script, execute the following command:
 ```sh
-python school_scraper.py
+python3 webScraper.py
 ```
 
 The script will retrieve school data from the specified pages and save it to a CSV file named `schools.csv`.
@@ -69,8 +69,11 @@ The script will retrieve school data from the specified pages and save it to a C
 The output CSV file `schools.csv` will contain columns such as:
 - `School Name`
 - `Location`
-- `Address`
 - `Sector`
+- `Address`
+- `Postal Code`
+- `Latitude`
+- `Longitute`
 - `Scores of 40+`
 - `Median Score`
 - `Satisfactory completions of VCE`
