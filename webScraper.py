@@ -15,7 +15,6 @@ def fetch_page(url):
         print(f"Failed to retrieve URL {url}: {e}")
         return None
     
-
 def parse_search_results(html):
     """
     Parse the search results from the HTML to extract school URLs.
@@ -48,9 +47,7 @@ def fetch_school_info(url):
         school_info["Address"] = address
 
         # Regular expression pattern to find the postal code
-        # \d+ matches one or more digits, and $ ensures it matches at the end of the string
         postal_code_pattern = r'\d+$'
-        # Search for the postal code in the address
         match = re.search(postal_code_pattern, address)
         if match:
             postal_code = match.group()
