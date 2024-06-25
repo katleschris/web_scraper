@@ -97,3 +97,31 @@ def fetch_school_info(url):
         return None
     
     return school_info
+
+def main():
+    """
+    Main function to scrape school data and save it to a CSV file.
+    """
+    pages = range(1, 6)
+    school_data = []
+
+    for page in pages:
+        url = f'https://www.goodschools.com.au/compare-schools/search/in-victoria/secondary?distance=10km&suburb_in=in-victoria&state_ids%5B0%5D=7&region_ids%5B0%5D=1300&school_level_ids%5B0%5D=1&page={page}'
+        print(f"Retrieving page {page}")
+
+        html = fetch_page(url)
+        if not html:
+            continue
+
+        school_urls = parse_search_results(html)
+        for link in school_urls:
+            school_info = fetch_school_info(link)
+            if school_info:
+                school_data.append(school_info)
+
+    # Create a DataFrame and save the data to a CSV file
+    df = pd.DataFrame(school_data)
+    df.to_csv('schools.csv', index=False)
+
+if __name__ == "__main__":
+    main()
