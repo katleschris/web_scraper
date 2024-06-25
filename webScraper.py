@@ -102,7 +102,7 @@ def main():
     """
     Main function to scrape school data and save it to a CSV file.
     """
-    pages = range(1, 6)
+    pages = range(1, 7)
     school_data = []
 
     for page in pages:
