@@ -42,8 +42,9 @@ def fetch_school_info(url):
         soup = BeautifulSoup(html, 'html.parser')
         school_info["School Name"] = soup.find("h1").text.strip()
         school_info["Location"] = soup.find("h4").text.strip()
-        address = soup.find("span", {"class": "map-address load-address"}).text.strip()
         school_info["Sector"] = soup.find("p", {"class": "d-inline float-left"}).text.strip()
+
+        address = soup.find("span", {"class": "map-address load-address"}).text.strip()
         school_info["Address"] = address
 
         # Regular expression pattern to find the postal code
@@ -56,6 +57,23 @@ def fetch_school_info(url):
             school_info["Postal Code"] = postal_code
         else:
             print("Postal code not found")
+
+        #fetch geolocation of address using Nominatim API
+        url = "https://nominatim.openstreetmap.org/search"
+        params = {
+            'q': address,
+            'format': 'json'
+        }
+        response = requests.get(url, params=params)
+        geolocation = response.json()
+        if geolocation :
+            #extract latitude and longitude
+            latitude = geolocation[0]['lat']
+            longitude = geolocation[0]['lon']
+            school_info["Latitude"] = latitude
+            school_info["Longitude"] = longitude
+        else:
+            print("geolocation not found")
 
         #fetch academic results
         academic_results_div = soup.find("div", class_="col-md-6 col-sm-6 col-6")
