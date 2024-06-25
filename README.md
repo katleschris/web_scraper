@@ -1,6 +1,18 @@
-# School Data Scraper
+<h1 align="center">Web Scraper to collect data on secondary schools in Victoria, Australia from Goodschools.com  </h1>
 
-This project scrapes school data from the Good Schools Guide website and saves it to a CSV file.
+<div align="center" >
+  <img src="https://img.shields.io/badge/made%20by-Katlego%20Leshiba-blue?style=for-the-badge&labelColor=20232a" />
+  <img src="https://img.shields.io/badge/Python-20232a?style=for-the-badge&logo=python&labelColor=2e2f38" />
+  <img src="https://img.shields.io/badge/Django-20232a?style=for-the-badge&logo=django&labelColor=162e16" />
+  <img src="https://img.shields.io/badge/CSS-20232a?style=for-the-badge&logo=css&labelColor=2e2f35" />
+  <img src="https://img.shields.io/badge/Pandas-20232a?style=for-the-badge&logo=pandas&labelColor=2e2f38" />
+  <img src="https://img.shields.io/badge/GeoPy-20232a?style=for-the-badge&logo=geopy&labelColor=2e2f38" />
+  
+</div>
+
+## Project Overview
+
+This project involves designing and implementing a web scraper to collect data for secondary schools in Australia. The script collects the School Name, Location/Suburb, Sector, Address, Postal Code, geolocation and academic results.
 
 ## Pre-requisites and Dependencies
 
